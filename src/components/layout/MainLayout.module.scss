@@ -1,0 +1,33 @@
+// src/components/layout/MainLayout.module.scss
+@use '../../style/variables' as *;
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+//사이드바 영역
+.sidebarArea {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+//헤더 영역
+.headerArea {
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.pageContent {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+}
