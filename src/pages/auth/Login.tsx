@@ -1,6 +1,7 @@
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
 import styles from './Login.module.scss';
+import ButtonGroup from '../../components/common/ButtonGroup';
 
 const Login = () => {
     return (
@@ -18,35 +19,42 @@ const Login = () => {
             <section className={styles.rightSection}>
                 <div className={styles.formBox}>
                     <h2 className={styles.formTitle}>Login first to your account</h2>
-                    
+
                     <form className={styles.form}>
-                        <Input 
-                            label="Email Address" 
-                            required 
-                            type="email" 
-                            placeholder="Input your registered email" 
+                        <Input
+                            label="Email Address"
+                            required
+                            type="email"
+                            placeholder="Input your registered email"
                         />
-                        <Input 
-                            label="Password" 
-                            required 
-                            type="password" 
-                            placeholder="Input your password account" 
+                        <Input
+                            label="Password"
+                            required
+                            type="password"
+                            placeholder="Input your password account"
                         />
-                        
+
                         <div className={styles.utils}>
-                            <label><input type="checkbox" /> Remember Me</label>
+                            <label>
+                                <input type="checkbox" /> Remember Me
+                            </label>
                             <a href="#">Forgot Password</a>
                         </div>
 
-                        <Button variant="primary" fullWidth>Login</Button>
-                        
+                        <Button variant="primary" fullWidth>
+                            Login
+                        </Button>
+
                         <div className={styles.divider}>Or login with</div>
 
-                        <div className={styles.socialGrop}>
-                            <Button variant="social" fullWidth>Google</Button>
-                            <Button variant="social" fullWidth>Apple</Button>
-                        </div>
-
+                        <ButtonGroup direction="row">
+                            <Button variant="social" fullWidth>
+                                Google
+                            </Button>
+                            <Button variant="social" fullWidth>
+                                Apple
+                            </Button>
+                        </ButtonGroup>
                         <p className={styles.signupLink}>
                             You're new in here? <a href="#">Create Account</a>
                         </p>
