@@ -8,26 +8,26 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     fullWidth?: boolean;
 }
 
-const Button = ({ 
-    children, 
-    variant = 'primary', 
-    size = 'md', 
-    fullWidth = false, 
-    className = '', 
-    ...props 
+const Button = ({
+    children,
+    variant = 'primary',
+    size = 'md',
+    fullWidth = false,
+    className = '',
+    ...props
 }: ButtonProps) => {
     return (
-        <button 
-        className={`
+        <button
+            className={`
             ${styles.button} 
             ${styles[variant]} 
             ${styles[size]} 
             ${fullWidth ? styles.full : ''} 
             ${className}
-        `} 
-        {...props}
+        `}
+            {...props}
         >
-        {children}
+            {children}
         </button>
     );
 };

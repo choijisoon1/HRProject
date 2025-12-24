@@ -1,4 +1,4 @@
-@use "../../style/variables" as *;
+@use '../../style/variables' as *;
 
 .button {
     display: inline-flex;
@@ -11,23 +11,49 @@
     transition: filter 0.2s;
     gap: 8px;
 
-    &:hover { filter: brightness(0.9); }
-    &:active { filter: brightness(0.8); }
-    &:disabled { 
-        filter: grayscale(1); 
-        opacity: 0.5; 
-        cursor: not-allowed; 
+    &:hover {
+        filter: brightness(0.9);
+    }
+    &:active {
+        filter: brightness(0.8);
+    }
+    &:disabled {
+        filter: grayscale(1);
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 }
 
 // Variants
-.primary { background-color: $color-white;}
-.secondary {background-color: transparent; border: 1px solid $color-700; color: $color-white;}
-.social { background-color: transparent; border: 1px solid $color-700; color: $color-white; font-weight: 400; }
+.primary {
+    background-color: $color-white;
+}
+.secondary {
+    background-color: transparent;
+    border: 1px solid $color-700;
+    color: $color-white;
+}
+.social {
+    background-color: transparent;
+    border: 1px solid $color-700;
+    color: $color-white;
+    font-weight: 400;
+}
 
 // Sizes
-.sm { padding: 6px 12px; font-size: 13px; }
-.md { padding: 12px 24px; font-size: 15px; }
-.lg { padding: 16px 32px; font-size: 18px; }
+.sm {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+.md {
+    padding: 12px 24px;
+    font-size: 15px;
+}
+.lg {
+    padding: 16px 32px;
+    font-size: 18px;
+}
 
-.full { width: 100%; }
+.full {
+    width: 100%;
+}

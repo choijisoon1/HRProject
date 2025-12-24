@@ -10,14 +10,11 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const Input = ({ label, error, required, className = '', ...props }: InputProps) => {
     return (
         <div className={`${styles.container} ${className}`}>
-        <label className={styles.label}>
-            {label} {required && <span className={styles.required}>*</span>}
-        </label>
-        <input 
-            className={`${styles.input} ${error ? styles.isError : ''}`} 
-            {...props} 
-        />
-        {error && <p className={styles.errorText}>{error}</p>}
+            <label className={styles.label}>
+                {label} {required && <span className={styles.required}>*</span>}
+            </label>
+            <input className={`${styles.input} ${error ? styles.isError : ''}`} {...props} />
+            {error && <p className={styles.errorText}>{error}</p>}
         </div>
     );
 };
