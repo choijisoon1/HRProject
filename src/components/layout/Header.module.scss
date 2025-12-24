@@ -1,0 +1,44 @@
+@use '../../style/variables' as *;
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: $color-800;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    color: $color-white;
+}
+
+/* 우측 메뉴 */
+.rightMenu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .link {
+        color: $color-400;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: $color-700;
+            border-radius: 50%;
+        }
+    }
+}
