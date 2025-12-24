@@ -1,4 +1,4 @@
-@use "../../style/variables" as *;
+@use '../../style/variables' as *;
 
 .container {
     display: flex;
@@ -10,7 +10,10 @@
 .label {
     font-size: 14px;
     color: $color-300;
-    .required { color: $color-error; margin-left: 2px; }
+    .required {
+        color: $color-error;
+        margin-left: 2px;
+    }
 }
 
 .input {
@@ -21,8 +24,16 @@
     border-radius: 8px;
     color: $color-white;
     outline: none;
-    &:focus { border-color: $color-primary; }
-    &.isError { border-color: $color-error; }
+    &:focus {
+        border-color: $color-primary;
+    }
+    &.isError {
+        border-color: $color-error;
+    }
 }
 
-.errorText { font-size: 12px; color: $color-error; margin-top: 4px; }
+.errorText {
+    font-size: 12px;
+    color: $color-error;
+    margin-top: 4px;
+}
