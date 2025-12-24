@@ -18,7 +18,7 @@ const Login = () => {
             {/* 오른쪽: 로그인 폼 영역 */}
             <section className={styles.rightSection}>
                 <div className={styles.formBox}>
-                    <h2 className={styles.formTitle}>Login first to your account</h2>
+                    <h2 className={styles.formTitle}>로그인</h2>
 
                     <form className={styles.form}>
                         <Input

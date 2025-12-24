@@ -51,3 +51,21 @@
         margin: 0 10px;
     }
 }
+
+.utils {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: $color-500;
+}
+
+.signupLink {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    color: $color-500;
+    gap: 20px;
+    a {
+        color: $color-primary;
+    }
+}
