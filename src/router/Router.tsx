@@ -1,16 +1,19 @@
+// src/router/Router.tsx
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../pages/auth/Login';
 import ComponentGuide from '../pages/ComponentGuide';
 import CalendarPage from '../pages/CalendarPage';
+import MainLayout from '../components/layout/MainLayout';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/guide" element={<ComponentGuide />} />
-                <Route path="/calendar" element={<CalendarPage />} />
+                <Route element={<MainLayout />}>
+                    <Route path="/calendar" element={<CalendarPage />} /> {/* 캘린더 */}
+                </Route>
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </BrowserRouter>

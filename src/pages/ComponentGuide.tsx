@@ -45,9 +45,23 @@ const ComponentGuide = () => {
                 <h2 style={{ marginBottom: '15px' }}>2. Inputs</h2>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                    {/* 인풋에 라벨이 있을 때  */}
                     <Input label="Email Address" placeholder="이메일을 입력하세요" required />
                     <Input label="Password" type="password" error="비밀번호가 일치하지 않습니다" />
                     <Input label="ReadOnly" value="수정 불가 데이터" readOnly />
+                    {/* 인풋에 아이콘이 있을 때 */}
+                    <Input
+                        placeholder="Search anything..."
+                        icon="🔍"
+                        style={{ marginBottom: 'none' }}
+                    />
+                    {/* 인풋에 라벨 아이콘 함께 있을 때 */}
+                    <Input
+                        label="search"
+                        placeholder="Search anything..."
+                        icon="🔍"
+                        style={{ marginBottom: 'none' }}
+                    />
                 </div>
             </section>
         </div>
