@@ -10,6 +10,8 @@ const ComponentGuide = () => {
             <h2>1. Buttons</h2>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
             <Button variant="primary">Primary</Button>
+            <Button variant="primary" fullWidth>fullWidth 사용법</Button> {/* 기본값 width 100% */}
+            <Button variant="primary" fullWidth style={{maxWidth : '400px'}}>fullWidth 사용법</Button> {/* 스타일을 직접줘서 maxWidth 바꿀 수도 있음, 레이아웃 맞추기 여의치 않을 때 사용 */}
             <Button variant="secondary">Secondary</Button>
             <Button variant="social">Google Login</Button>
             <Button disabled>Disabled</Button>
