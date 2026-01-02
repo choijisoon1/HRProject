@@ -11,21 +11,25 @@
     color: $color-white;
 }
 
+/* 검색창 영역 (Input 컴포넌트 감싸기용) */
+.searchBar {
+    width: 300px;
+}
+
 /* 우측 메뉴 */
 .rightMenu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 
-    .link {
-        color: $color-400;
-        font-size: 14px;
-        font-weight: 500;
-        transition: color 0.2s;
-        cursor: pointer;
+    
+    .welcomeMsg {
+        font-size: 16px;
+        color: $color-400; 
 
-        &:hover {
-            color: $color-white;
+        strong {
+            color: $color-white; 
+            font-weight: 700;
         }
     }
 
@@ -39,6 +43,7 @@
             height: 40px;
             background-color: $color-700;
             border-radius: 50%;
+            /* background-image: url(...) 나중에 추가 */
         }
     }
 }
