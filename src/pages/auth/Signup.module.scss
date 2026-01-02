@@ -1,0 +1,71 @@
+@use '../../style/variables' as *;
+
+.signupPage {
+    display: flex;
+    min-height: 100vh;
+    background-color: $color-900;
+}
+
+.rightSection {
+    flex: 1;
+    background-color: $color-700;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    color: $color-white;
+    /* 실제 사진 넣을 땐 background-image: url(...) 사용 */
+}
+
+.leftSection {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.formBox {
+    width: 100%;
+    max-width: 440px;
+
+    .formTitle {
+        color: $color-white;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 24px;
+    }
+}
+
+// 구분선 스타일링
+.divider {
+    display: flex;
+    align-items: center;
+    color: $color-500;
+    margin: 30px 0;
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background-color: $color-700;
+        margin: 0 10px;
+    }
+}
+
+.utils {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: $color-500;
+}
+
+.signupLink {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    color: $color-500;
+    gap: 20px;
+    a {
+        color: $color-primary;
+    }
+}
