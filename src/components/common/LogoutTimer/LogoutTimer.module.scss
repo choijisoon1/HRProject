@@ -1,0 +1,60 @@
+@use "../../../style/variables" as *;
+
+.timerWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid $color-700;
+    font-size: 13px;
+    color: $color-white;
+}
+
+.timeText {
+    strong {
+        color: $color-warning;
+        font-family: monospace;
+        margin-left: 4px;
+        min-width: 40px; 
+        display: inline-block;
+        text-align: center;
+    }
+}
+
+.btnGroup {
+    display: flex;
+    gap: 6px;
+}
+
+/* 공통 버튼 스타일, 이것도 button 컴포넌트로 이동 예정 */
+%mini-btn {
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.extendBtn {
+    @extend %mini-btn;
+    background-color: $color-primary;
+    color: white;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
+}
+
+.logoutBtn {
+    @extend %mini-btn;
+    background-color: $color-600; 
+    color: white;
+
+    &:hover {
+        background-color: $color-500;
+    }
+}

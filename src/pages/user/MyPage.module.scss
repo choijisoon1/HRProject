@@ -1,0 +1,61 @@
+@use '../../style/variables' as *;
+
+.pageTitle {
+    font-size: 24px;
+    color: $color-white;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.card {
+    background-color: $color-800; 
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid $color-700;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+    margin-bottom: 30px;
+    h2 {
+        font-size: 20px;
+        color: $color-white;
+        margin-bottom: 8px;
+    }
+    p {
+        color: $color-500;
+        font-size: 14px;
+    }
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px; 
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.divider {
+    grid-column: 1 / -1; 
+    height: 1px;
+    background-color: $color-700;
+    margin: 10px 0;
+}
+
+.actionArea {
+    grid-column: 1 / -1; 
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    
+    button {
+        width: 200px;
+    }
+}
+
+.spacer {
+    display: block;
+}
