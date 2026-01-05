@@ -6,8 +6,8 @@ import CalendarPage from '../pages/CalendarPage';
 import MainLayout from '../components/layout/MainLayout';
 import SignUp from '../pages/auth/Signup';
 import AuthGuard from './AuthGuard';
-import Employees from '@/pages/user/Employees';
-import MyPage from '../pages/user/Mypage';
+import Employees from '../pages/user/Employees';
+import MyPage from '../pages/user/MyPage';
 
 const Router = () => {
     return (
