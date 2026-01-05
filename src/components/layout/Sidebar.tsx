@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Sidebar.module.scss';
+import { supabase } from '../../api/supabaseClient';
 
 /* 메뉴 목록 (임시 메뉴 목록, 나중에 메뉴목록 교체 및 아이콘은 폰트어썸 등 무료 아이콘 패키지로 교체) */
 const MENU_ITEMS = [
@@ -15,6 +16,12 @@ const MENU_ITEMS = [
 
 const Sidebar = () => {
     const location = useLocation(); /* 현재 주소를 알아내서 활성화 표시 */
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        alert('로그아웃 되었습니다');
+        window.location.reload(); /* 새로고침하면 로그인 페이지로 튕김 */
+    };
 
     return (
         <aside className={styles.sidebar}>
@@ -53,9 +60,13 @@ const Sidebar = () => {
                     <span className={styles.badge}>8</span>{' '}
                     {/* 뱃지는 공통컴포넌트로 변경 생각중 , 알림쪽에서도 쓸 가능성 */}
                 </div>
-                <div className={styles.menuItem}>
+                <Link to='/mypage' className={styles.menuItem}>
                     <span className={styles.icon}>⚙️</span>
-                    <span className={styles.label}>Setting</span>
+                    <span className={styles.label}>My Page</span>
+                </Link>
+                <div className={styles.menuItem} onClick={handleLogout}>
+                    <span className={styles.icon}>🔓</span>
+                    <span className={styles.label}>로그아웃</span>
                 </div>
             </div>
         </aside>
