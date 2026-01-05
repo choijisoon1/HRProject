@@ -19,7 +19,7 @@ const ButtonGroup = ({
     return (
         <div
             className={`${styles.group} ${styles[direction]} ${styles[align]} ${className}`}
-            style={{ gap: `${gap}px` }} //간격은 동적으로 조절 가능하게
+            style={{ gap: `${gap}px` }} /* 간격은 동적으로 조절 가능 */
         >
             {children}
         </div>

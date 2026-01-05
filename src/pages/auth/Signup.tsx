@@ -15,7 +15,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
 
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        /* 입력된 값에서 "숫자가 아닌 것"은 모두 공백으로 바꿈 (문자 입력 원천 봉쇄) */
+        /* 입력된 값에서 "숫자가 아닌 것"은 모두 공백으로 바꿈 (문자 입력 방지용) */
         const rawDigits = e.target.value.replace(/[^0-9]/g, '');
 
         let formatted = rawDigits;
@@ -53,7 +53,7 @@ const SignUp = () => {
         if (data.user) {
             const { error: profileError } = await supabase.from('profiles').insert([
                 {
-                    id: data.user.id /* Auth 유저 ID와 동일하게 맞춰야 함! */,
+                    id: data.user.id,
                     email: email,
                     username: name,
                     phone: phone,
