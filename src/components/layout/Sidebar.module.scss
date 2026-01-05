@@ -36,7 +36,7 @@
     }
 }
 
-//메뉴 아이템 공통
+/* 메뉴 아이템 공통 */
 .menuItem {
     display: flex;
     align-items: center;
@@ -88,10 +88,14 @@
     padding-top: 20px;
 
     .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         background-color: $color-error;
         color: white;
         font-size: 11px;
-        padding: 2px 8px;
-        border-radius: 50%;
+        padding: 7px 10px 10px 10px;
+        border-radius: 50%; 
+        line-height: 1;
     }
 }
