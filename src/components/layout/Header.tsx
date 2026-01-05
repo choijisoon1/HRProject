@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import Input from '../common/Input';
 import { supabase } from '../../api/supabaseClient'; 
+import LogoutTimer from '../common/LogoutTimer/LogoutTimer';
 
 const Header = () => {
     const [userName, setUserName] = useState('User'); 
@@ -37,6 +38,7 @@ const Header = () => {
 
             {/* 우측 영역 환영 메시지로 변경 */}
             <div className={styles.rightMenu}>
+                <LogoutTimer />
                 <div className={styles.welcomeMsg}>
                     반갑습니다, <strong>{userName}</strong>님!
                 </div>
