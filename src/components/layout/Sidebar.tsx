@@ -22,7 +22,7 @@ const Sidebar = () => {
             <div className={styles.logoArea}>
                 <span className={styles.logoIcon}>T</span>
                 <h1 className={styles.logoText}>ToGateComzHR</h1>
-                <button className={styles.collapseBtn}>{'<<'}</button>
+                
             </div>
 
             {/* 네비게이션 메뉴 */}
