@@ -1,4 +1,4 @@
-@use '../../style/variables' as *;
+@use '../../../style/variables' as *;
 
 .container {
     display: flex;
@@ -24,7 +24,7 @@
     border-radius: 8px;
     color: $color-white;
     outline: none;
-    margin-bottom: 15px;
+   /*  margin-bottom: 15px; */
     &:focus {
         border-color: $color-primary;
     }

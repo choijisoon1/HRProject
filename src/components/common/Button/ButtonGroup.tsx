@@ -6,6 +6,7 @@ interface ButtonGroupProps {
     direction?: 'row' | 'column';
     gap?: number;
     align?: 'start' | 'center' | 'end' | 'stretch';
+    fullWidth?: boolean;
     className?: string;
 }
 
@@ -14,11 +15,12 @@ const ButtonGroup = ({
     direction = 'row',
     gap = 12,
     align = 'stretch',
+    fullWidth = true, /* 기본값 true */
     className = '',
 }: ButtonGroupProps) => {
     return (
         <div
-            className={`${styles.group} ${styles[direction]} ${styles[align]} ${className}`}
+            className={`${styles.group} ${styles[direction]} ${styles[align]} ${fullWidth ? styles.full : styles.auto} ${className}`}
             style={{ gap: `${gap}px` }} /* 간격은 동적으로 조절 가능 */
         >
             {children}

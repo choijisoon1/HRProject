@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../../api/supabaseClient';
-import Input from '../../components/common/Input';
-import Button from '../../components/common/Button';
+import Input from '../../components/common/Form/Input';
+import Button from '../../components/common/Button/Button';
 import styles from './Login.module.scss';
-import ButtonGroup from '../../components/common/ButtonGroup';
+import ButtonGroup from '../../components/common/Button/ButtonGroup';
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');

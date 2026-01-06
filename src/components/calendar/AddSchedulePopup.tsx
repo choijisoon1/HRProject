@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from '@/components/common/Button';
+import Button from '@/components/common/Button/Button';
 import Popup from '@/components/common/Popup';
 import { supabase } from '@/api/supabaseClient';
 

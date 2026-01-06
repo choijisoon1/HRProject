@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Input from '../../components/common/Input';
-import Button from '../../components/common/Button';
+import Input from '../../components/common/Form/Input';
+import Button from '../../components/common/Button/Button';
 import styles from './Signup.module.scss';
 import { supabase } from '../../api/supabaseClient';
 

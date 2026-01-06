@@ -1,6 +1,6 @@
-import Button from '../components/common/Button';
-import Input from '../components/common/Input';
-import ButtonGroup from '../components/common/ButtonGroup';
+import Button from '../components/common/Button/Button';
+import Input from '../components/common/Form/Input';
+import ButtonGroup from '../components/common/Button/ButtonGroup';
 const ComponentGuide = () => {
     return (
         <div

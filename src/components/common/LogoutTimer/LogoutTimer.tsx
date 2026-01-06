@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../../api/supabaseClient';
 import styles from './LogoutTimer.module.scss';
+import Button from '../Button/Button';
+import ButtonGroup from '../Button/ButtonGroup';
 
 const LogoutTimer = () => {
     const navigate = useNavigate();
@@ -82,14 +84,14 @@ const LogoutTimer = () => {
             <span className={styles.timeText}>
                 남은 시간: <strong>{formatTime(timeLeft)}</strong>
             </span>
-            <div className={styles.btnGroup}>
-                <button onClick={handleExtend} className={styles.extendBtn}>
+            <ButtonGroup gap={6} align='end' fullWidth={false}>
+                <Button size='sm' variant='primary' onClick={handleExtend}>
                     연장
-                </button>
-                <button onClick={() => handleLogout(false)} className={styles.logoutBtn}>
+                </Button>
+                <Button size='sm' variant='secondary' onClick={() => handleLogout(false)}>
                     로그아웃
-                </button>
-            </div>
+                </Button>
+            </ButtonGroup>
         </div>
     );
 };
