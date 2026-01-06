@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../../api/supabaseClient';
 import styles from './LogoutTimer.module.scss';
-import Button from '../Button';
-import ButtonGroup from '../ButtonGroup';
+import Button from '../Button/Button';
+import ButtonGroup from '../Button/ButtonGroup';
 
 const LogoutTimer = () => {
     const navigate = useNavigate();

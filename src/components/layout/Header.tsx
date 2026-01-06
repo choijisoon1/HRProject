@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
-import Input from '../common/Input';
+import Input from '../common/Form/Input';
 import { supabase } from '../../api/supabaseClient'; 
 import LogoutTimer from '../common/LogoutTimer/LogoutTimer';
 

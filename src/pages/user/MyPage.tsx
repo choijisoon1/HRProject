@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../api/supabaseClient';
 import PageLayout from '../../components/common/PageLayout';
-import Input from '../../components/common/Input';
-import Button from '../../components/common/Button';
+import Input from '../../components/common/Form/Input';
+import Button from '../../components/common/Button/Button';
 import styles from './MyPage.module.scss';
 import PageHeader from '@/components/common/PageHeader/PageHeader';
 import FormRow from '@/components/common/Form/FormRow';
