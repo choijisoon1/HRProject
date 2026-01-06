@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../../api/supabaseClient';
 import PageLayout from '../../components/common/PageLayout'; 
 import styles from './Employees.module.scss';
+import PageHeader from '@/components/common/PageHeader/PageHeader';
+import Table, { type Column } from '@/components/common/Table/Table';
 
 /* 데이터 타입 정의  */
 interface Employee {
@@ -37,53 +39,50 @@ const Employees = () => {
         fetchEmployees();
     }, []);
 
+    const columns: Column<Employee>[] = [
+        {
+            header: '이름',
+            key: 'username',
+            // 커스텀 렌더링: 프로필 사진 + 이름
+            render: (emp) => (
+                <div className={styles.userInfo}>
+                    <div className={styles.avatar} />
+                    {emp.username}
+                </div>
+            )
+        },
+        { header: '이메일', key: 'email' },
+        { header: '전화번호', key: 'phone' },
+        {
+            header: '권한',
+            key: 'role',
+            /* 커스텀 렌더링: 뱃지 스타일 */
+            render: (emp) => (
+                <span className={`${styles.badge} ${styles[emp.role]}`}>
+                    {emp.role}
+                </span>
+            )
+        },
+        {
+            header: '가입일',
+            key: 'created_at',
+            /* 커스텀 렌더링: 날짜 포맷 */
+            render: (emp) => new Date(emp.created_at).toLocaleDateString()
+        }
+    ];
+
     return (
         <PageLayout>
-            <div className={styles.header}>
-                <h2>Employees</h2>
-                <p>총 {list.length}명의 직원이 있습니다.</p>
-            </div>
-
+            <PageHeader 
+                title='Employees'
+                description={`총 ${list.length}명의 직원이 있습니다.`}
+            />
             {/* 테이블 컴포넌트화 예정 */}
-            <div className={styles.tableWrapper}>
-                <table className={styles.table}>
-                    <thead>
-                        <tr>
-                            <th>이름</th>
-                            <th>이메일</th>
-                            <th>전화번호</th>
-                            <th>권한</th>
-                            <th>가입일</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {loading ? (
-                            <tr><td colSpan={5} className={styles.empty}>로딩 중...</td></tr>
-                        ) : list.length === 0 ? (
-                            <tr><td colSpan={5} className={styles.empty}>데이터가 없습니다.</td></tr>
-                        ) : (
-                            list.map((emp) => (
-                                <tr key={emp.id}>
-                                    <td>
-                                        <div className={styles.userInfo}>
-                                            <div className={styles.avatar} /> {/* 임시 프사 */}
-                                            {emp.username}
-                                        </div>
-                                    </td>
-                                    <td>{emp.email}</td>
-                                    <td>{emp.phone}</td>
-                                    <td>
-                                        <span className={`${styles.badge} ${styles[emp.role]}`}>
-                                            {emp.role}
-                                        </span>
-                                    </td>
-                                    <td>{new Date(emp.created_at || Date.now()).toLocaleDateString()}</td>
-                                </tr>
-                            ))
-                        )}
-                    </tbody>
-                </table>
-            </div>
+            <Table 
+                columns={columns} 
+                data={list} 
+                loading={loading} 
+            />
         </PageLayout>
     );
 };

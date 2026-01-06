@@ -1,0 +1,18 @@
+@use '../../../style/variables' as *;
+
+.container {
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-white;
+    margin-bottom: 8px; /* 설명이 붙을 때를 대비한 마진 */
+}
+
+.description {
+    font-size: 16px;
+    color: $color-500;
+    line-height: 1.5;
+}
