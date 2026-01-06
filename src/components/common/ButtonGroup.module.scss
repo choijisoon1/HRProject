@@ -1,10 +1,20 @@
 .group {
     display: flex;
-    width: 100%;
+}
 
-    & > button,
-    & > a {
+.full {
+    width: 100%;
+    
+    & > button, & > a {
         flex: 1;
+    }
+}
+
+.auto {
+    width: auto;
+    
+    & > button, & > a {
+        flex: none;
     }
 }
 
