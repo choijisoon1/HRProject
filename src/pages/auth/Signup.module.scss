@@ -35,7 +35,12 @@
         font-size: 24px;
     }
 }
-
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
 /* 구분선 스타일링 */
 .divider {
     display: flex;
