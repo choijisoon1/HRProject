@@ -1,11 +1,5 @@
 @use '../../style/variables' as *;
 
-.pageTitle {
-    font-size: 24px;
-    color: $color-white;
-    margin-bottom: 24px;
-    font-weight: 700;
-}
 
 .card {
     background-color: $color-800; 
@@ -28,25 +22,25 @@
     }
 }
 
-.formGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px; 
-
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-    }
+// 🆕 [추가] 폼 내부 세로 간격 관리
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
+// 🗑️ [삭제] .formGrid 삭제
+// 🗑️ [삭제] .spacer 삭제
+
 .divider {
-    grid-column: 1 / -1; 
+    // grid-column: 1 / -1;  <-- 🗑️ 삭제 (이제 flex 자식이므로 자동 100%)
     height: 1px;
     background-color: $color-700;
     margin: 10px 0;
 }
 
 .actionArea {
-    grid-column: 1 / -1; 
+    // grid-column: 1 / -1;  <-- 🗑️ 삭제
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
@@ -54,8 +48,4 @@
     button {
         width: 200px;
     }
-}
-
-.spacer {
-    display: block;
 }

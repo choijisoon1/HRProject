@@ -5,6 +5,7 @@ import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
 import styles from './MyPage.module.scss';
 import PageHeader from '@/components/common/PageHeader/PageHeader';
+import FormRow from '@/components/common/Form/FormRow';
 
 const MyPage = () => {
     const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ const MyPage = () => {
                 setEmail(user.email || '');
 
                 /* 나머지 정보는 profiles 테이블에서 가져옴 */
-                const { data, error } = await supabase
+                const { data, /* error */ } = await supabase
                     .from('profiles')
                     .select('*')
                     .eq('id', user.id)
@@ -97,18 +98,16 @@ const MyPage = () => {
 
     return (
         <PageLayout>
-            <div className={styles.container}>
-                <PageHeader title="My Page" />
+            <PageHeader title="My Page" />
 
-                {/* 카드 형태의 컨테이너 */}
-                <div className={styles.card}>
-                    <div className={styles.cardHeader}>
-                        <h2>Personal Info</h2>
-                        <p>기본 정보 및 비밀번호를 수정할 수 있습니다.</p>
-                    </div>
+            <div className={styles.card}>
+                <div className={styles.cardHeader}>
+                    <h2>Personal Info</h2>
+                    <p>기본 정보 및 비밀번호를 수정할 수 있습니다.</p>
+                </div>
 
-                    <form onSubmit={handleUpdate} className={styles.formGrid}>
-                        {/* 이름 / 이메일(읽기전용) */}
+                <form onSubmit={handleUpdate} className={styles.formContainer}>
+                    <FormRow>
                         <Input 
                             label="Full Name" 
                             value={name} 
@@ -120,19 +119,20 @@ const MyPage = () => {
                             disabled 
                             style={{ opacity: 0.7 }}
                         />
+                    </FormRow>
 
-                        {/* 전화번호 */}
+                    <FormRow>
                         <Input 
                             label="Phone Number" 
                             value={phone} 
                             onChange={(e) => setPhone(e.target.value)} 
                         />
-                        <div className={styles.spacer}></div> {/* 빈 공간 채우기용 */}
+                        
+                    </FormRow>
 
-                        {/* 구분선 */}
-                        <div className={styles.divider}></div>
+                    <div className={styles.divider}></div>
 
-                        {/* 새 비밀번호 / 비밀번호 확인 */}
+                    <FormRow>
                         <Input 
                             label="New Password" 
                             type="password"
@@ -147,15 +147,14 @@ const MyPage = () => {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)} 
                         />
+                    </FormRow>
 
-                        {/* 저장 버튼 */}
-                        <div className={styles.actionArea}>
-                            <Button type="submit" variant="primary" disabled={loading}>
-                                {loading ? 'Saving...' : 'Save Changes'}
-                            </Button>
-                        </div>
-                    </form>
-                </div>
+                    <div className={styles.actionArea}>
+                        <Button type="submit" variant="primary" disabled={loading}>
+                            {loading ? 'Saving...' : 'Save Changes'}
+                        </Button>
+                    </div>
+                </form>
             </div>
         </PageLayout>
     );
