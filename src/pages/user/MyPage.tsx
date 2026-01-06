@@ -4,6 +4,7 @@ import PageLayout from '../../components/common/PageLayout';
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
 import styles from './MyPage.module.scss';
+import PageHeader from '@/components/common/PageHeader/PageHeader';
 
 const MyPage = () => {
     const [loading, setLoading] = useState(false);
@@ -97,7 +98,7 @@ const MyPage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
-                <h1 className={styles.pageTitle}>My Page</h1>
+                <PageHeader title="My Page" />
 
                 {/* 카드 형태의 컨테이너 */}
                 <div className={styles.card}>
