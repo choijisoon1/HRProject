@@ -3,6 +3,7 @@ import styles from './Header.module.scss';
 import Input from '../common/Form/Input';
 import { supabase } from '../../api/supabaseClient'; 
 import LogoutTimer from '../common/LogoutTimer/LogoutTimer';
+import NotificationBell from '../common/NotificationBell/NotificationBell';
 
 const Header = () => {
     const [userName, setUserName] = useState('User'); 
@@ -38,6 +39,7 @@ const Header = () => {
 
             {/* 우측 영역 환영 메시지로 변경 */}
             <div className={styles.rightMenu}>
+                <NotificationBell />
                 <LogoutTimer />
                 <div className={styles.welcomeMsg}>
                     반갑습니다, <strong>{userName}</strong>님!

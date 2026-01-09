@@ -3,10 +3,10 @@ import styles from './Sidebar.module.scss';
 
 /* 메뉴 목록 (임시 메뉴 목록, 나중에 메뉴목록 교체 및 아이콘은 폰트어썸 등 무료 아이콘 패키지로 교체) */
 const MENU_ITEMS = [
-    { name: 'Dashboard', path: '/', icon: '⊞' },
-    { name: 'Employees', path: '/employees', icon: '👥' },
+    { name: '대시보드', path: '/', icon: '⊞' },
+    { name: '사원 목록', path: '/employees', icon: '👥' },
     { name: 'Checklist', path: '/checklist', icon: '☑️' },
-    { name: 'Time Off', path: '/timeoff', icon: '⏰' },
+    { name: '연차 결재', path: '/calendar', icon: '⏰' },
     { name: 'Attendance', path: '/attendance', icon: '📅' },
     { name: 'Payroll', path: '/payroll', icon: '💵' },
     { name: 'Performance', path: '/performance', icon: '📈' },
@@ -55,7 +55,7 @@ const Sidebar = () => {
                 </div>
                 <Link to='/mypage' className={styles.menuItem}>
                     <span className={styles.icon}>⚙️</span>
-                    <span className={styles.label}>My Page</span>
+                    <span className={styles.label}>마이 페이지</span>
                 </Link>
             </div>
         </aside>

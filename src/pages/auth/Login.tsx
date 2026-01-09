@@ -58,6 +58,8 @@ const Login = () => {
                 console.log('환영합니다, ' + profile.username + '님!');
             }
 
+            /* 새로 로그인 했을 때를 체크 */
+            sessionStorage.setItem('is_fresh_login', 'true');
             navigate('/', { replace: true });
         }
         setLoading(false);
