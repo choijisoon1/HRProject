@@ -1,0 +1,62 @@
+@use '../../style/variables' as *;
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup {
+    background: $color-900;
+    width: 400px;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    h3 { font-size: 18px; font-weight: 700; }
+    .closeBtn { font-size: 20px; color: #999; cursor: pointer; background: none; border: none; }
+}
+
+.infoRow {
+    margin-bottom: 15px;
+    .label { font-weight: 600; margin-right: 10px; color: $color-500; }
+}
+
+.radioGroup {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    label { cursor: pointer; display: flex; align-items: center; gap: 5px; }
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.viewMode {
+    p { margin-bottom: 10px; font-size: 15px; }
+    strong { margin-right: 8px; color: $color-600; }
+}
+
+.status {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    &.pending { background: #FFF7ED; color: #C2410C; } // 주황
+    &.approved { background: #ECFDF5; color: #047857; } // 초록
+    &.rejected { background: #FEF2F2; color: #B91C1C; } // 빨강
+}
