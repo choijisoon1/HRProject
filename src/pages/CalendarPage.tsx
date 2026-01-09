@@ -131,7 +131,7 @@ const CalendarPage = () => {
                 <Calendar
                     onChange={handleDateChange}
                     value={date}
-                    formatDay={(locale, date) => date.getDate().toString()} 
+                    formatDay={(_locale, date) => date.getDate().toString()} 
                     tileContent={tileContent}
                     onClickDay={handleDateClick} // 날짜 클릭 시 추가 팝업
                 />
