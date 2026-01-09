@@ -1,0 +1,80 @@
+@use '../style/variables' as *;
+
+.calendarContainer {
+    background-color: $color-white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+:global {
+    .react-calendar {
+        width: 100%;
+        border: none;
+        font-family: inherit;
+    }
+    
+    .react-calendar__tile {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px !important;
+        border: 1px solid #f3f4f6;
+        position: relative;
+        overflow: hidden;
+
+        &:hover { background-color: $color-50; }
+    }
+
+    /* 오늘 날짜 */
+    .react-calendar__tile--now {
+        background: transparent;
+        abbr {
+            background-color: $color-900;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    
+    /* 선택된 날짜 */
+    .react-calendar__tile--active {
+        background: transparent !important;
+        color: inherit !important;
+        border: 2px solid $color-primary !important;
+    }
+}
+
+.badgeContainer {
+    width: 100%;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.leaveBadge {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: filter 0.2s;
+
+    &:hover { filter: brightness(0.95); }
+    
+    &.annual { background-color: rgba($color-error, 0.15); color: $color-error; }
+    &.half { background-color: rgba($color-warning, 0.2); color: darken($color-warning, 20%); }
+
+    /* 대기중인 결재는 점선 테두리 */
+    &.pending { border: 1px dashed currentColor; opacity: 0.8; }
+}
