@@ -3,69 +3,97 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../../api/supabaseClient';
 import styles from './LogoutTimer.module.scss';
-import Button from '../Button/Button';
-import ButtonGroup from '../Button/ButtonGroup';
+import Button from '../../../components/common/Button/Button';
+import ButtonGroup from '../../../components/common/Button/ButtonGroup';
 
 const LogoutTimer = () => {
     const navigate = useNavigate();
     
+    // 테스트용 10초
     const EXTEND_TIME = 30 * 60; 
     const STORAGE_KEY = 'session_expire_time';
 
-    /* 남은 시간 계산 함수 */
     const calculateTimeLeft = () => {
         const expireTime = localStorage.getItem(STORAGE_KEY);
         
         if (!expireTime) {
-            /* 저장된 시간이 없으면? (최초 로그인) -> 지금부터 30분 뒤로 설정 */
             const newExpire = Date.now() + EXTEND_TIME * 1000;
             localStorage.setItem(STORAGE_KEY, newExpire.toString());
             return EXTEND_TIME;
         }
 
-        /* 저장된 시간 - 현재 시간 = 남은 초 */
-        const diff = Math.floor((parseInt(expireTime) - Date.now()) / 1000);
+        const expireDate = parseInt(expireTime);
+        if (isNaN(expireDate)) {
+            const newExpire = Date.now() + EXTEND_TIME * 1000;
+            localStorage.setItem(STORAGE_KEY, newExpire.toString());
+            return EXTEND_TIME;
+        }
+
+        const diff = Math.floor((expireDate - Date.now()) / 1000);
         return diff > 0 ? diff : 0;
     };
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
     const isLogoutProcessStarted = useRef(false);
 
+    /* 로그인 시점 체크 */
+    useEffect(() => {
+        const checkSessionStatus = () => {
+            const currentLeft = calculateTimeLeft();
+            const isFreshLogin = sessionStorage.getItem('is_fresh_login');
+
+            if (isFreshLogin) {
+                /* 방금 로그인함 -> 시간 리셋 */
+                const newExpire = Date.now() + EXTEND_TIME * 1000;
+                localStorage.setItem(STORAGE_KEY, newExpire.toString());
+                setTimeLeft(EXTEND_TIME);
+                sessionStorage.removeItem('is_fresh_login'); 
+            } 
+            else if (currentLeft <= 0) {
+                /* 시간 만료된 상태로 접속함 (다음날 출근) -> 강제 로그아웃 */
+                localStorage.removeItem(STORAGE_KEY);
+                supabase.auth.signOut();
+                navigate('/login', { replace: true });
+            }
+        };
+
+        checkSessionStatus();
+    }, []); 
+
+    /* 타이머 */
     useEffect(() => {
         const timer = setInterval(() => {
             const currentLeft = calculateTimeLeft();
             setTimeLeft(currentLeft);
 
-            /* 시간이 다 됐으면 로그아웃 */
-            if (currentLeft <= 0 && !isLogoutProcessStarted.current) {
+            if (currentLeft <= 0) {
+                if (isLogoutProcessStarted.current) return;
+                
                 clearInterval(timer);
-                handleLogout(true);
+                handleLogout(true); 
             }
         }, 1000);
 
         return () => clearInterval(timer);
     }, []);
 
-    /* 로그아웃 함수 (자동/수동 공용) */
     const handleLogout = async (isAuto = false) => {
-        /* 수동 클릭일 때는 확인 받기 */
         if (!isAuto && !window.confirm("로그아웃 하시겠습니까?")) return;
 
         isLogoutProcessStarted.current = true;
         
-        /* 스토리지의 시간 기록 삭제 */
+        if (isAuto) {
+            alert("세션이 만료되어 자동 로그아웃 되었습니다.");
+        }
+        
         localStorage.removeItem(STORAGE_KEY);
         
         await supabase.auth.signOut();
         
-        if (isAuto) alert("세션이 만료되어 자동 로그아웃 되었습니다.");
-        
         navigate('/login', { replace: true });
     };
 
-    /* 연장하기 */
     const handleExtend = () => {
-        /* 남은 시간을 다시 30분으로 갱신 */
         const newExpire = Date.now() + EXTEND_TIME * 1000;
         localStorage.setItem(STORAGE_KEY, newExpire.toString());
         
@@ -88,7 +116,7 @@ const LogoutTimer = () => {
                 <Button size='sm' variant='primary' onClick={handleExtend}>
                     연장
                 </Button>
-                <Button size='sm' variant='secondary' onClick={() => handleLogout(false)}>
+                <Button size='sm' variant='social' onClick={() => handleLogout(false)}>
                     로그아웃
                 </Button>
             </ButtonGroup>
