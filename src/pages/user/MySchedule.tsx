@@ -81,10 +81,7 @@ const MySchedule = () => {
 
             
                 {/* 
-                   🚀 [핵심 변경] 
-                   1. ratio="1fr 150px 100px" -> 내용(가변) : 날짜(고정) : 버튼(고정)
-                   2. 다크 모드니까 className={styles.inputArea} 제거하고 바로 FormRow 사용
-                   3. 다크 모드니까 Input에 className={darkInput} 줄 필요 없음 (기본이 다크)
+                  ratio="1fr 150px 100px" -> 내용(가변) : 날짜(고정) : 버튼(고정)
                 */}
                 <form onSubmit={handleAdd}>
                     <FormRow ratio="1fr 150px 100px">
