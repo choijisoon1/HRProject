@@ -8,7 +8,7 @@ import SignUp from '../pages/auth/Signup';
 import AuthGuard from './AuthGuard';
 import Employees from '../pages/user/Employees';
 import MyPage from '../pages/user/MyPage';
-import Dashboard from '@/pages/user/DashBoard';
+import DashBoard from '@/pages/user/DashBoard';
 
 const Router = () => {
     return (
@@ -21,7 +21,7 @@ const Router = () => {
                 <Route element={<AuthGuard />}>
                     <Route element={<MainLayout />}>
                         {/* 컨텐츠가 아직 일정관리 페이지 뿐이라 임시로, 추후 대시보드 추가하면 변경 */}
-                        <Route path="/" element={<Dashboard />} />{' '}
+                        <Route path="/" element={<DashBoard />} />{' '}
                         <Route path="/employees" element={<Employees />} /> 
                         <Route path="/calendar" element={<CalendarPage />} />
                         <Route path="/mypage" element={<MyPage />} />

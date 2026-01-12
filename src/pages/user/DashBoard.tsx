@@ -1,6 +1,6 @@
 import PageLayout from '../../components/common/PageLayout';
 import PageHeader from '../../components/common/PageHeader/PageHeader';
-import styles from './Dashboard.module.scss';
+import styles from './DashBoard.module.scss';
 
 const Dashboard = () => {
     return (
@@ -11,7 +11,7 @@ const Dashboard = () => {
             />
 
             <div className={styles.container}>
-                {/* 1. 완료된 기능 카드 */}
+                {/* 완료된 기능 카드 */}
                 <div className={styles.card}>
                     <h3>✅ 개발 완료된 기능</h3>
                     <ul className={styles.list}>
@@ -46,7 +46,7 @@ const Dashboard = () => {
                     </ul>
                 </div>
 
-                {/* 2. 예정된 기능 카드 */}
+                {/* 예정된 기능 카드 */}
                 <div className={styles.card}>
                     <h3>🚧 개발 예정 기능</h3>
                     <ul className={styles.list}>
