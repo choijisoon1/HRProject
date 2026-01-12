@@ -119,7 +119,7 @@ const LogoutTimer = () => {
                 <Button size='sm' variant='primary' onClick={handleExtend}>
                     연장
                 </Button>
-                <Button size='sm' variant='social' onClick={() => handleLogout(false)}>
+                <Button size='sm' variant='logout' onClick={() => handleLogout(false)}>
                     로그아웃
                 </Button>
             </ButtonGroup>
