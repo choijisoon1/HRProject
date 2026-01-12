@@ -5,9 +5,9 @@ import styles from './Sidebar.module.scss';
 const MENU_ITEMS = [
     { name: '대시보드', path: '/', icon: '⊞' },
     { name: '사원 목록', path: '/employees', icon: '👥' },
-    { name: '연차 결재', path: '/calendar', icon: '⏰' },
-    { name: 'New Menu', path: '/NewMenu', icon: '☑️' },
-    { name: 'New Menu', path: '/NewMenu', icon: '📅' },
+    { name: '연차 결재', path: '/calendar', icon: '📅' },
+    { name: '나의 일정 체크', path: '/myschedule', icon: '📝' },
+    { name: 'New Menu', path: '/NewMenu', icon: '⏰' },
     { name: 'New Menu', path: '/NewMenu', icon: '💵' },
     { name: 'New Menu', path: '/NewMenu', icon: '📈' },
     { name: 'New Menu', path: '/NewMenu', icon: '🔰' },

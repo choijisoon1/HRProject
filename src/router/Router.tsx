@@ -9,6 +9,7 @@ import AuthGuard from './AuthGuard';
 import Employees from '../pages/user/Employees';
 import MyPage from '../pages/user/MyPage';
 import DashBoard from '@/pages/user/DashBoard';
+import MySchedule from '../pages/user/MySchedule'
 
 const Router = () => {
     return (
@@ -24,6 +25,7 @@ const Router = () => {
                         <Route path="/" element={<DashBoard />} />{' '}
                         <Route path="/employees" element={<Employees />} /> 
                         <Route path="/calendar" element={<CalendarPage />} />
+                        <Route path="/myschedule" element={<MySchedule />} />
                         <Route path="/mypage" element={<MyPage />} />
                     </Route>
                 </Route>
