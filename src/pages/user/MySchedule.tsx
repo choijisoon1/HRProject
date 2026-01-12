@@ -78,13 +78,8 @@ const MySchedule = () => {
     return (
         <PageLayout>
             <PageHeader title="나의 일정" description="개인적인 업무와 할 일을 관리합니다." />
-
-            
                 {/* 
-                   🚀 [핵심 변경] 
-                   1. ratio="1fr 150px 100px" -> 내용(가변) : 날짜(고정) : 버튼(고정)
-                   2. 다크 모드니까 className={styles.inputArea} 제거하고 바로 FormRow 사용
-                   3. 다크 모드니까 Input에 className={darkInput} 줄 필요 없음 (기본이 다크)
+                    ratio="1fr 150px 100px" -> 내용(가변) : 날짜(고정) : 버튼(고정)
                 */}
                 <form onSubmit={handleAdd}>
                     <FormRow ratio="1fr 150px 100px">
@@ -98,10 +93,9 @@ const MySchedule = () => {
                             value={date} 
                             onChange={(e) => setDate(e.target.value)} 
                         />
-                        {/* 버튼은 라벨이 없어서 높이가 안 맞을 수 있으니 div로 감싸거나 스타일 조정 */}
-                        <div style={{ paddingBottom: '2px' }}> 
-                            <Button type="submit" variant="primary" fullWidth>추가</Button>
-                        </div>
+                        
+                        <Button type="submit" variant="primary" fullWidth>추가</Button>
+                        
                     </FormRow>
                 </form>
 
