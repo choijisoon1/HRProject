@@ -80,16 +80,4 @@
     margin-top: auto;
     border-top: 1px solid $color-800;
     padding-top: 20px;
-
-    .badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $color-error;
-        color: white;
-        font-size: 11px;
-        padding: 5px 9px 7px 9px;
-        border-radius: 50%; 
-        line-height: 1;
-    }
 }
