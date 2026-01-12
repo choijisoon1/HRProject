@@ -1,0 +1,53 @@
+@use '../../style/variables' as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card {
+    background-color: $color-800;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid $color-700;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    color: $color-white;
+
+    h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $color-700;
+        padding-bottom: 15px;
+    }
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    
+    li {
+        margin-bottom: 12px;
+        font-size: 15px;
+        color: $color-300;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &.todo {
+            color: $color-500; 
+            &::before { content: "-"; margin-right: 5px; }
+        }
+    }
+}
+
+.tag {
+    background-color: rgba($color-primary, 0.2);
+    color: $color-primary;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 60px;
+    text-align: center;
+}
