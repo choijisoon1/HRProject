@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 
 /* 버튼 옵션 prop */
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'primary' | 'secondary' | 'social';
+    variant?: 'primary' | 'secondary' | 'social' | 'logout';
     size?: 'sm' | 'md' | 'lg';
     fullWidth?: boolean;
 }
