@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { supabase } from '../api/supabaseClient';
-import PageLayout from '../components/common/PageLayout';
-import PageHeader from '../components/common/PageHeader/PageHeader';
-import AddSchedulePopup from '../components/calendar/AddSchedulePopup';
+import { supabase } from '../../api/supabaseClient';
+import PageLayout from '../../components/common/PageLayout';
+import PageHeader from '../../components/common/PageHeader/PageHeader';
+import AddSchedulePopup from '../../components/calendar/AddSchedulePopup';
 import styles from './CalendarPage.module.scss';
 
 /* 타입 에러 해결용 */
@@ -127,15 +127,13 @@ const CalendarPage = () => {
                 description="팀원들의 휴가 일정을 확인하고 신청할 수 있습니다." 
             />
 
-            <div className={styles.calendarContainer}>
-                <Calendar
-                    onChange={handleDateChange}
-                    value={date}
-                    formatDay={(_locale, date) => date.getDate().toString()} 
-                    tileContent={tileContent}
-                    onClickDay={handleDateClick} // 날짜 클릭 시 추가 팝업
-                />
-            </div>
+            <Calendar
+                onChange={handleDateChange}
+                value={date}
+                formatDay={(_locale, date) => date.getDate().toString()} 
+                tileContent={tileContent}
+                onClickDay={handleDateClick} // 날짜 클릭 시 추가 팝업
+            />
 
             {/* 통합 팝업 하나만 렌더링 */}
             {popupState.isOpen && (

@@ -1,11 +1,4 @@
-@use '../style/variables' as *;
-
-.calendarContainer {
-    background-color: $color-white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
+@use '../../style/variables' as *;
 
 :global {
     .react-calendar {
@@ -15,7 +8,7 @@
     }
     
     .react-calendar__tile {
-        height: 100px;
+        height: 150px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

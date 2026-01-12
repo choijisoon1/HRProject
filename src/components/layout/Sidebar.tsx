@@ -5,12 +5,12 @@ import styles from './Sidebar.module.scss';
 const MENU_ITEMS = [
     { name: '대시보드', path: '/', icon: '⊞' },
     { name: '사원 목록', path: '/employees', icon: '👥' },
-    { name: 'Checklist', path: '/checklist', icon: '☑️' },
     { name: '연차 결재', path: '/calendar', icon: '⏰' },
-    { name: 'Attendance', path: '/attendance', icon: '📅' },
-    { name: 'Payroll', path: '/payroll', icon: '💵' },
-    { name: 'Performance', path: '/performance', icon: '📈' },
-    { name: 'Recruitment', path: '/recruitment', icon: '🔰' },
+    { name: 'New Menu', path: '/NewMenu', icon: '☑️' },
+    { name: 'New Menu', path: '/NewMenu', icon: '📅' },
+    { name: 'New Menu', path: '/NewMenu', icon: '💵' },
+    { name: 'New Menu', path: '/NewMenu', icon: '📈' },
+    { name: 'New Menu', path: '/NewMenu', icon: '🔰' },
 ];
 
 const Sidebar = () => {
@@ -47,12 +47,6 @@ const Sidebar = () => {
 
             {/* 하단 설정 영역 */}
             <div className={styles.bottomMenu}>
-                <div className={styles.menuItem}>
-                    <span className={styles.icon}>❓</span>
-                    <span className={styles.label}>Help Center</span>
-                    <span className={styles.badge}>8</span>{' '}
-                    {/* 뱃지는 공통컴포넌트로 변경 생각중 , 알림쪽에서도 쓸 가능성 */}
-                </div>
                 <Link to='/mypage' className={styles.menuItem}>
                     <span className={styles.icon}>⚙️</span>
                     <span className={styles.label}>마이 페이지</span>

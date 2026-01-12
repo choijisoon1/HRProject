@@ -34,7 +34,7 @@ const Header = () => {
         <header className={styles.header}>
             {/* 검색창 */}
             <div className={styles.searchBar}>
-                <Input placeholder="Search anything..." icon="🔍" style={{ marginBottom: '0' }} />
+                <Input placeholder="검색어를 입력하세요." icon="🔍" style={{ marginBottom: '0' }} />
             </div>
 
             {/* 우측 영역 환영 메시지로 변경 */}

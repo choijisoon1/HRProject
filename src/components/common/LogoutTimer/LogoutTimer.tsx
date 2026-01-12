@@ -9,11 +9,14 @@ import ButtonGroup from '../../../components/common/Button/ButtonGroup';
 const LogoutTimer = () => {
     const navigate = useNavigate();
     
-    // 테스트용 10초
     const EXTEND_TIME = 30 * 60; 
     const STORAGE_KEY = 'session_expire_time';
+    const isLogoutProcessStarted = useRef(false);
 
     const calculateTimeLeft = () => {
+        /* 로그아웃이 진행중이면 타이머 계산 X */
+        if (isLogoutProcessStarted.current) return 0;
+
         const expireTime = localStorage.getItem(STORAGE_KEY);
         
         if (!expireTime) {
@@ -34,7 +37,7 @@ const LogoutTimer = () => {
     };
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-    const isLogoutProcessStarted = useRef(false);
+    
 
     /* 로그인 시점 체크 */
     useEffect(() => {

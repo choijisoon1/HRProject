@@ -4,7 +4,7 @@ import { supabase } from '../../api/supabaseClient';
 import Input from '../../components/common/Form/Input';
 import Button from '../../components/common/Button/Button';
 import styles from './Login.module.scss';
-import ButtonGroup from '../../components/common/Button/ButtonGroup';
+
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -86,7 +86,7 @@ const Login = () => {
                             label="Email Address"
                             required
                             type="email"
-                            placeholder="Input your registered email"
+                            placeholder="email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
@@ -94,7 +94,7 @@ const Login = () => {
                             label="Password"
                             required
                             type="password"
-                            placeholder="Input your password account"
+                            placeholder="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
@@ -111,18 +111,18 @@ const Login = () => {
                             {loading ? '로그인 중...' : 'Login'}
                         </Button>
 
-                        <div className={styles.divider}>Or login with</div>
+                        {/* <div className={styles.divider}>Or login with</div> */}
 
-                        <ButtonGroup direction="row">
+                        {/* <ButtonGroup direction="row">
                             <Button variant="social" fullWidth>
                                 Google
                             </Button>
                             <Button variant="social" fullWidth>
                                 Apple
                             </Button>
-                        </ButtonGroup>
+                        </ButtonGroup> */}
                         <p className={styles.signupLink}>
-                            You're new in here? <Link to="/signup">Create Account</Link>
+                            새로운 사원이신가요? <Link to="/signup">계정 만들기</Link>
                         </p>
                     </form>
                 </div>
