@@ -4,6 +4,7 @@ import { supabase } from '../../api/supabaseClient';
 import Input from '../../components/common/Form/Input';
 import Button from '../../components/common/Button/Button';
 import styles from './Login.module.scss';
+import Form from '@/components/common/Form/Form';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -80,8 +81,7 @@ const Login = () => {
             <section className={styles.rightSection}>
                 <div className={styles.formBox}>
                     <h2 className={styles.formTitle}>로그인</h2>
-
-                    <form className={styles.form} onSubmit={handleLogin}>
+                    <Form onSubmit={handleLogin}>
                         <Input
                             label="Email Address"
                             required
@@ -111,20 +111,10 @@ const Login = () => {
                             {loading ? '로그인 중...' : 'Login'}
                         </Button>
 
-                        {/* <div className={styles.divider}>Or login with</div> */}
-
-                        {/* <ButtonGroup direction="row">
-                            <Button variant="social" fullWidth>
-                                Google
-                            </Button>
-                            <Button variant="social" fullWidth>
-                                Apple
-                            </Button>
-                        </ButtonGroup> */}
                         <p className={styles.signupLink}>
                             새로운 사원이신가요? <Link to="/signup">계정 만들기</Link>
                         </p>
-                    </form>
+                    </Form>
                 </div>
             </section>
         </div>
