@@ -7,7 +7,7 @@ import Button from "@/components/common/Button/Button";
 import styles from './MySchedule.module.scss';
 import FormRow from "@/components/common/Form/FormRow";
 import Form from "@/components/common/Form/Form";
-import Textarea from "@/components/common/Form/TextArea";
+import Textarea from '../../components/common/Form/Textarea'
 
 interface Todo {
     id: string;
@@ -101,7 +101,7 @@ const MySchedule = () => {
                 <Form onSubmit={handleAdd}>
                     <Textarea 
                         value={content}
-                        onChange={(e) => setContent(e.target.value)} 
+                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value)} 
                         placeholder="할 일을 입력하세요 (예: 3시 미팅 준비)" 
                         rows={3}
                     />
