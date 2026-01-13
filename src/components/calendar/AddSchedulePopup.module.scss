@@ -23,7 +23,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    h3 { font-size: 18px; font-weight: 700; }
+    h3 { font-size: 18px; font-weight: 700;}
     .closeBtn { font-size: 20px; color: #999; cursor: pointer; background: none; border: none; }
 }
 
@@ -32,31 +32,18 @@
     .label { font-weight: 600; margin-right: 10px; color: $color-500; }
 }
 
-.radioGroup {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-    label { cursor: pointer; display: flex; align-items: center; gap: 5px; }
-}
-
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
-
 .viewMode {
     p { margin-bottom: 10px; font-size: 15px; }
     strong { margin-right: 8px; color: $color-600; }
 }
 
 .status {
-    padding: 2px 6px;
+    padding: 2px 8px;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
-    &.pending { background: #FFF7ED; color: #C2410C; } // 주황
-    &.approved { background: #ECFDF5; color: #047857; } // 초록
-    &.rejected { background: #FEF2F2; color: #B91C1C; } // 빨강
+    
+    &.pending { background-color: #FFF7ED; color: #C2410C; border: 1px solid #FFEDD5; }
+    &.approved { background-color: #ECFDF5; color: #047857; border: 1px solid #D1FAE5; }
+    &.rejected { background-color: #FEF2F2; color: #B91C1C; border: 1px solid #FEE2E2; }
 }

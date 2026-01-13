@@ -6,6 +6,7 @@ import Input from "@/components/common/Form/Input";
 import Button from "@/components/common/Button/Button";
 import styles from './MySchedule.module.scss';
 import FormRow from "@/components/common/Form/FormRow";
+import Form from "@/components/common/Form/Form";
 
 interface Todo {
     id: string;
@@ -79,9 +80,9 @@ const MySchedule = () => {
         <PageLayout>
             <PageHeader title="나의 일정" description="개인적인 업무와 할 일을 관리합니다." />
                 {/* 
-                  ratio="1fr 150px 100px" -> 내용(가변) : 날짜(고정) : 버튼(고정)
+                    ratio="1fr 150px 100px" -> 내용(가변) : 날짜(고정) : 버튼(고정)
                 */}
-                <form onSubmit={handleAdd}>
+                <Form onSubmit={handleAdd}>
                     <FormRow ratio="1fr 150px 100px">
                         <Input 
                             value={content} 
@@ -97,7 +98,8 @@ const MySchedule = () => {
                         <Button type="submit" variant="primary" fullWidth>추가</Button>
                         
                     </FormRow>
-                </form>
+                </Form>
+                
 
                 {/* 리스트 영역 */}
                 <ul className={styles.todoList}>

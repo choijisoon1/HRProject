@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { supabase } from '../../api/supabaseClient';
+import Form from '../common/Form/Form'; 
 import Input from '../common/Form/Input';
+import RadioGroup from '../common/Form/RadioGroup';
 import Button from '../common/Button/Button'; 
+import ButtonGroup from '../common/Button/ButtonGroup';
 import styles from './AddSchedulePopup.module.scss';
 
 interface Props {
     isOpen: boolean;
     onClose: () => void;
     onSuccess: () => void; /* 작업 성공 시 캘린더 새로고침 */
-    mode: 'add' | 'view';  /* 추가 모드 vs 보기 모드 */
+    mode: 'add' | 'view';  /* 추가 모드 vs 조회 모드 */
     date: Date;
-    selectedData?: any;    /* 보기 모드일 때 보여줄 데이터 */
+    selectedData?: any;    /* 조회 모드일 때 보여줄 데이터 */
     currentUserId?: string;
     currentUserRole?: string;
 }
@@ -80,7 +83,7 @@ const AddSchedulePopup = ({ isOpen, onClose, onSuccess, mode, date, selectedData
         setLoading(false);
     };
 
-    // [로직 2] 신청 철회 (Delete)
+    /* 신청 철회 (Delete) */
     const handleDelete = async () => {
         if (!confirm('정말 신청을 철회하시겠습니까?')) return;
         setLoading(true);
@@ -144,25 +147,22 @@ const AddSchedulePopup = ({ isOpen, onClose, onSuccess, mode, date, selectedData
                 <div className={styles.body}>
                     {/* --- 모드에 따라 다른 화면 보여주기 --- */}
                     {mode === 'add' ? (
-                        <form onSubmit={handleAdd} className={styles.form}>
+                        <Form onSubmit={handleAdd}>
                             <div className={styles.infoRow}>
                                 <span className={styles.label}>날짜</span>
                                 <span>{dateStr}</span>
                             </div>
                             
-                            {/* 라디오 버튼 (공통 컴포넌트로 빼야할듯)*/}
-                            <div className={styles.radioGroup}>
-                                <label>
-                                    <input type="radio" name="type" value="annual" 
-                                        checked={leaveType === 'annual'} 
-                                        onChange={() => setLeaveType('annual')} /> 연차
-                                </label>
-                                <label>
-                                    <input type="radio" name="type" value="half" 
-                                        checked={leaveType === 'half'} 
-                                        onChange={() => setLeaveType('half')} /> 반차
-                                </label>
-                            </div>
+                            {/* RadioGroup 사용 */}
+                            <RadioGroup 
+                                name="type"
+                                value={leaveType}
+                                onChange={setLeaveType}
+                                options={[
+                                    { label: '연차', value: 'annual' },
+                                    { label: '반차', value: 'half' }
+                                ]}
+                            />
 
                             <Input 
                                 label="사유" 
@@ -172,11 +172,11 @@ const AddSchedulePopup = ({ isOpen, onClose, onSuccess, mode, date, selectedData
                                 required
                             />
 
-                            <div className={styles.actions}>
+                            <ButtonGroup gap={10} align="stretch">
                                 <Button type="button" variant="secondary" onClick={onClose}>취소</Button>
                                 <Button type="submit" variant="primary" disabled={loading}>결재 올리기</Button>
-                            </div>
-                        </form>
+                            </ButtonGroup>
+                        </Form>
                     ) : (
                         <div className={styles.viewMode}>
                             <p><strong>이름:</strong> {selectedData?.profiles?.username}</p>
@@ -195,26 +195,28 @@ const AddSchedulePopup = ({ isOpen, onClose, onSuccess, mode, date, selectedData
                             </p>
 
                             <div className={styles.actions}>
-                                {/* 관리자용 버튼 (대기중일 때만 승인/반려 가능) */}
-                                {isAdmin && selectedData?.status === 'pending' && (
-                                    <>
-                                        <Button type="button" variant="primary" onClick={() => handleApprove('approved')} disabled={loading}>
-                                            승인
-                                        </Button>
-                                        <Button type="button" variant="secondary" onClick={() => handleApprove('rejected')} disabled={loading}>
-                                            반려
-                                        </Button>
-                                    </>
-                                )}
+                                <ButtonGroup gap={10} align="end">
+                                    {/* 관리자용 버튼 (대기중일 때만 승인/반려 가능) */}
+                                    {isAdmin && selectedData?.status === 'pending' && (
+                                        <>
+                                            <Button size="sm" variant="primary" onClick={() => handleApprove('approved')} disabled={loading}>
+                                                승인
+                                            </Button>
+                                            <Button size="sm" variant="secondary" onClick={() => handleApprove('rejected')} disabled={loading}>
+                                                반려
+                                            </Button>
+                                        </>
+                                    )}
 
-                                {/* 본인용 버튼 (대기중일 때만 철회 가능) */}
-                                {isMyPost && !isAdmin && selectedData?.status === 'pending' && (
-                                    <Button type="button" variant="primary" onClick={handleDelete} disabled={loading}>
-                                        신청 철회
-                                    </Button>
-                                )}
-                                
-                                <Button type="button" variant="secondary" onClick={onClose}>닫기</Button>
+                                    {/* 본인용 버튼 (대기중일 때만 철회 가능) */}
+                                    {isMyPost && !isAdmin && selectedData?.status === 'pending' && (
+                                        <Button size="sm" variant="primary" onClick={handleDelete} disabled={loading}>
+                                            신청 철회
+                                        </Button>
+                                    )}
+                                    
+                                    <Button size="sm" variant="secondary" onClick={onClose}>닫기</Button>
+                                </ButtonGroup>
                             </div>
                         </div>
                     )}
