@@ -45,7 +45,7 @@ const Dashboard = () => {
                         </li>
                         <li>
                             <span className={styles.tag}>Feature</span> 
-                            스케줄 관리 (체크리스트) 페이지 초안, 체크리스트에서 변경 고려중
+                            스케줄 관리 (카드형태, 체크리스트 포함)
                         </li>
                     </ul>
                 </div>
@@ -57,8 +57,6 @@ const Dashboard = () => {
                         <li className={styles.todo}>대시보드 위젯 (차트, 요약 정보) 구현</li>
                         <li className={styles.todo}>반응형 적용</li>
                         <li className={styles.todo}>관리자(Admin) 전용 기능 추가</li>
-                        <li className={styles.todo}>간편 스케줄 관리 시스템 추가 구현</li>
-                        <li className={styles.todo}>form 컴포넌트 필요</li>
                     </ul>
                 </div>
             </div>
